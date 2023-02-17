@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+ th:replace="~{layout/comm-layout :: commLayout(~{this::head}, ~{::main})}">
+<head>
+	<link rel="stylesheet" href="/css/sign/signup.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".domainInsert").change(domainInsert);
+			/* enter로 인한 submit 막기 */
+			$(document).keypress(e=>{ 
+	            if (e.keyCode == 13)
+	                e.preventDefault();
+			});
+			$("#passCheck").keyup(passwordCheck);
+			$(".idCheck").click(idCheck);
+			$(".nickNameCheck").click(nickNameCheck);
+		});
+		function idCheck(){
+			var email=$("#email1").val()+"@"+$("#domain").val();
+			var id=$("#email1").val();
+			var domain=$("#domain").val();
+			$.ajax({
+				url:`/check/idCheck/${email}`,
+				success:function(result){
+					if(result==true){
+						alert("이미 존재하는 이메일입니다.");
+					}else{
+						if(id==""){
+							alert("이메일을 입력해주세요");
+							$("#idch").val(0);
+						}else if(domain==""){
+							alert("도메인을 입력해주세요");
+							$("#idch").val(0);
+						}else{
+							alert("사용가능한 이메일입니다.");
+							$("#idch").val(1);
+						}
+					}
+				},
+				error:function(){
+					alert("오류발생");
+				}
+			});
+		}
+		var check = 0;
+		function nickNameCheck(){
+			var nickName = $("#nickName").val();
+			
+			if(nickName==""){
+				alert("닉네임을 입력해주세요");
+				$("#nich").val(0);
+				return;
+			}
+			
+			$.ajax({
+				url:`/check/nickNameCheck/${nickName}`,
+				success:function(result){
+					if(result==true){
+						alert("이미 존재하는 닉네임입니다");
+						$("#nich").val(0);
+					}else{
+						alert("사용가능한 닉네임입니다.");
+						$("#nich").val(1);
+					}
+				},
+				error:function(){
+					alert("오류발생");
+				}
+			});
+		}
+		
+		function passwordCheck(){ /*비밀번호 , 비밀번호 확인 */
+			/* if(){
+				$(".passwordCheck").show();
+				$("#passCheck").focus();
+				$("#createbtn").attr('type', "button");
+			} */
+			
+			//if($("#pass").val()!="" || $("#pass").val()!="" || $("#email").val()!="" || $("#domain").val()!=""){
+				if($("#pass").val() != $("#passCheck").val()){
+					$(".passwordCheck").show();
+					$("#passCheck").focus();
+					$("#createbtn").attr('type', "button");
+				}else{
+					if($("#nich").val()==1 && $("#idch").val()==1){
+						$(".passwordCheck").hide();
+						$("#email").attr('value', emaildomain);
+						$("#createbtn").attr('type', "submit");
+					}else{
+					}
+				}
+			//}else{
+			//	$("#createbtn").attr('type', "button");
+			//}
+		}
+		function emaildomain(){
+			var result = "";
+			result=$("#email1").val()+"@"+$("#domain").val();
+			$("#email").val(result);
+		}
+		function domainInsert(){ /* 도메인 select 사용시 자동 입력 */
+			var domain1=$(".domainInsert").val()
+			$("#domain").val(domain1);
+		}
+	</script>
+</head>
+<main>
+	<div class="signupWrap page-tit">
+		<div class="nameArea">
+			<h1 class="name">회원가입</h1>
+			<div class="stepImg">
+				<!-- step img -->
+				<ul class="flex center">
+					<li class="step1">
+						<span>step1</span>
+					</li>
+					<li class="step2"><span>step2</span></li>
+					<li class="step3 col"><span>step3</span></li>
+					<li class="step4"><span>step4</span></li>
+				</ul>
+			</div>
+		</div>
+		<h3><strong>Step1. </strong> 회원가입</h3>
+		<div class="inputArea">
+			<div class="inputForm">
+				<h2>기본 정보 (필수 입력)</h2>
+				<!-- 입력 -->
+				<form action="/members/join" method="post">
+	    			<ul>
+	    				<li>
+	    					<span>아이디(이메일)</span>
+	    					<input type="hidden" id="email" name="email" value="">
+	    					<input type="text" id="email1" placeholder="이메일 또는 아이디">@
+	    					<input type="text" id="domain" placeholder="이메일 도메인 입력">
+	    					<select class="domainInsert">
+	    						<option value="">직접입력</option>
+	    						<option value="naver.com">naver.com</option>
+	    						<option value="google.com">google.com</option>
+	    						<option value="daum.net">daum.net</option>
+	    						<option value="nate.com">nate.com</option>
+	    					</select>
+	    					<button type="button" class="idCheck">중복확인</button>
+	    				</li>
+	    				<li>
+	    					<span>닉네임 확인</span>
+	    					<input type="text" id="nickName" name="nickName" placeholder="닉네임 입력">
+	    					<button type="button" class="nickNameCheck">중복확인</button>
+	    				</li>
+	    				<li>
+	    					<span>비밀번호 입력</span>
+	    					<input type="password" id="pass" name="pass" placeholder="비밀번호 입력">
+	    					<div><span class="passwordCheck">비밀번호가 다릅니다 다시 입력해주세요.</span></div>
+	    				</li>
+	    				<li>
+	    					<span>비밀번호 확인</span>
+	    					<input type="password" id="passCheck" placeholder="비밀번호 확인">
+	    				</li>
+	    				<hr>
+	    				<li>
+	    					<input type="hidden" id="nich" value="">
+	    					<input type="hidden" id="idch" value="">
+	    					<button type="button" id="createbtn">회원가입</button>
+	    				</li>
+	    			</ul>
+	    		</form>
+    		</div>
+		</div>
+	</div>
+</main>
+</html>

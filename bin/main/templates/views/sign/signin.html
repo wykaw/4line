@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+ th:replace="~{layout/comm-layout :: commLayout(~{this::head}, ~{::main})}">
+<head>
+	<link rel="stylesheet" href="/css/sign/signin.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		//체크박스 클릭 구현
+		$('#icon').on('click', function(){
+		  $('#form_checkbox').prop('checked', true);
+		  
+		});
+		
+		$(document).ready(function(){
+			// 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어감.
+		    var key = getCookie("key");
+		    $("#login_email").val(key); 
+		     
+		    // 그 전에 ID를 저장해서 처음 페이지 로딩 시, 입력 칸에 저장된 ID가 표시된 상태라면,
+		    if($("#login_email").val() != ""){ 
+		        $("#cbox").attr("checked", true); // ID 저장하기를 체크 상태로 두기.
+		    }
+		     
+		    $("#cbox").change(function(){ // 체크박스에 변화가 있다면,
+		        if($("#cbox").is(":checked")){ // ID 저장하기 체크했을 때,
+		            setCookie("key", $("#login_email").val(), 7); // 7일 동안 쿠키 보관
+		        }else{ // ID 저장하기 체크 해제 시,
+		            deleteCookie("key");
+		        }
+		    });
+		     
+		    // ID 저장하기를 체크한 상태에서 ID를 입력하는 경우, 이럴 때도 쿠키 저장.
+		    $("#login_email").keyup(function(){ // ID 입력 칸에 ID를 입력할 때,
+		        if($("#cbox").is(":checked")){ // ID 저장하기를 체크한 상태라면,
+		            setCookie("key", $("#login_email").val(), 7); // 7일 동안 쿠키 보관
+		        }
+		    });
+		
+			// 쿠키 저장하기 
+			// setCookie => saveid함수에서 넘겨준 시간이 현재시간과 비교해서 쿠키를 생성하고 지워주는 역할
+			function setCookie(cookieName, value, exdays) {
+				var exdate = new Date();
+				exdate.setDate(exdate.getDate() + exdays);
+				var cookieValue = escape(value)
+						+ ((exdays == null) ? "" : "; expires=" + exdate.toGMTString());
+				document.cookie = cookieName + "=" + cookieValue;
+			}
+	
+			// 쿠키 삭제
+			function deleteCookie(cookieName) {
+				var expireDate = new Date();
+				expireDate.setDate(expireDate.getDate() - 1);
+				document.cookie = cookieName + "= " + "; expires="
+						+ expireDate.toGMTString();
+			}
+		     
+			// 쿠키 가져오기
+			function getCookie(cookieName) {
+				cookieName = cookieName + '=';
+				var cookieData = document.cookie;
+				var start = cookieData.indexOf(cookieName);
+				var cookieValue = '';
+				if (start != -1) { // 쿠키가 존재하면
+					start += cookieName.length;
+					var end = cookieData.indexOf(';', start);
+					if (end == -1) // 쿠키 값의 마지막 위치 인덱스 번호 설정 
+						end = cookieData.length;
+		                console.log("end위치  : " + end);
+					cookieValue = cookieData.substring(start, end);
+				}
+				return unescape(cookieValue);
+			}
+		});
+	
+	</script>
+</head>
+<body>
+	<main>
+		<div id="content">
+			<div class="signin_wrapper">
+				<div class="signin_tit">
+					<h2>LOGIN</h2>
+					<p>4LINE 회원으로 로그인하시면 제공하는<br>다양한 서비스를 이용할 수 있습니다.</p>
+				</div>
+				<form action="/members/signin" method="post">
+					<div class="signin_input">
+						<div class="form_box">
+							<div class="write_info_wrap">
+								<div class="input_set">
+									<dl>
+										<dt>이메일 아이디</dt>
+										<dd>
+											<span class="form_text">
+												<input type="text" name="email" id="login_email" placeholder="이메일 아이디 입력" >
+											</span>
+										</dd>
+										<dt>비밀번호</dt>
+										<dd>
+											<span class="form_text">
+												<input type="password" name="pass" id="login_pass" placeholder="비밀번호 입력" >
+											</span>
+										</dd>
+									</dl>
+								</div>
+							</div>
+							<label class="form_checkbox">
+								<input type="checkbox" id="cbox" name="cbox">
+								<span class="icon"></span>
+								이메일 아이디 저장
+							</label>
+						</div>
+					</div>
+					<div class="signin_btn">
+						<button id="login_btn">로그인</button>
+					</div>
+				</form>
+				<div class="signin_link">
+					<ul> 
+						<li>
+							<a href="#" id="findId">아이디 찾기</a>
+						</li>
+						<li>
+							<a href="#" id="findPw">비밀번호 찾기</a>
+						</li>
+						<li>
+							<a href="/members/signup">회원가입</a>
+						</li>
+					</ul>
+				</div>
+				<div class="signin_social">
+					<ul class="flex">
+						<li>
+							<a href="/oauth2/authorization/naver"><img src="/images/common/sns_naver.png">Naver</a>
+						</li>
+						<li>
+							<a href="/oauth2/authorization/google"><img src="/images/common/sns_google.png">Google</a>
+						</li>
+						<li>
+							<a href="/oauth2/authorization/kakao"><img src="/images/common/sns_kakao.png">Kakao</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+<body>
+</html>

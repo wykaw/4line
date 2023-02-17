@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>관리자페이지</title>
+    <link rel="stylesheet" href="/css/commons/common.css">
+    <link rel="stylesheet" href="/css/commons/admin-layout.css">
+</head>
+<header>
+   	<h1>좌측메뉴</h1>
+   	<div class="wrap">
+   		<ul>
+ 
+   			<li>
+   				<a href="/admin">관리자HOME</a>
+   			</li>
+   			<li>
+   				<dl>
+   					<dt>상품</dt>
+   					<dd>
+   						<a href="/admin/goods/reg">상품등록</a>
+   					</dd>
+   					<dd>
+   						<a href="/admin/goods/list">상품리스트</a>
+   					</dd>
+   				</dl>
+   			</li>
+   			<li>
+   				<dl>
+   					<dt>주문</dt>
+   					<dd><a href="/admin">주문관리</a></dd>
+   				</dl>
+   			</li>
+   			<li>
+   				<dl>
+   					<dt>회원</dt>
+   					<dd><a href="/admin/member/list">회원관리</a></dd>
+   				</dl>
+   			</li>
+   			<li>
+   				<a href="/">SHOPPING MALL</a>
+   			</li>
+   			<li>
+   				<a href="https://4line.ncpworkplace.com/authn/logoutProcess">NaverCloud</a>
+   			</li>
+   		</ul>
+   	</div>
+</header>
+</html>

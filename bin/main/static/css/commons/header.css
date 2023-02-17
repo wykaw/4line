@@ -1,0 +1,166 @@
+@charset "UTF-8";
+
+
+#wrap{
+	min-width:1280px;
+}
+
+.content{
+	max-width:1170px; 
+	margin:0 auto; 
+	position:relative;
+}
+
+/*///////////////////////////header////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+#header{
+	border-top:5px solid #ff650b;
+	height:165px; 
+	left:0; 
+	width:100%; 
+	top:0; 
+	z-index:99;
+	 background-color:#fff; 
+	 min-width:1280px;
+}
+
+#header:after{
+	content:''; 
+	position:absolute;
+	top:164px; 
+	background-color:#e5e5e5; 
+	left:0; 
+	width:100%; 
+	height:1px;
+}
+#header .logo{
+	position:absolute; 
+	left:50%; 
+	top:10px; 
+	margin-left:-101px;  
+	transition-duration:0.3s
+}
+#header .logo a{
+	display:block; 
+	background:url("/images/common/logo3_w.png") 0 0 no-repeat; 
+	width:202px;
+	height:200px; 
+	overflow:hidden; 
+	font-size:0px; 
+	line-height:0px; 
+	text-indent:-9999px;
+}
+
+/*//////////////////////////menu///////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+.menu_wrap{
+	text-align:center; 
+	position:absolute; 
+	left:0; 
+	width:100%; 
+	top:98px; 
+	text-align:center;
+}
+
+.menu_wrap .dep1 {
+	font-size: 0;
+}
+
+.menu_wrap .dep1>li {
+	display: inline-block; 
+	width:165px;
+	vertical-align: top;
+	background: white; /* 메뉴 배경 색깔*/
+	text-align: center; /* 글자 가운데 정렬*/
+	font-size: 16px;
+	position: relative;
+}
+
+.menu_wrap .dep1 > li:hover > a {
+	color: #ff650b; /* 마우스 호버했을때 글씨 색깔 변경*/
+}
+
+.menu_wrap .dep1 > li:hover > .dep2 {
+	display: block; /* 메뉴바 내리기 */
+}
+.menu_wrap .dep1 > li > a {
+	display: block; /* a 태그가 li영역만큼 길어지게 하기 위해서 */
+	font-size:18px; 
+	color:#292929; 
+	font-weight:bold; 
+	letter-spacing:-0.04em; 
+	position:relative; 
+	z-index:8; 
+	padding-top:20px;  
+}
+
+.menu_wrap .dep2{
+	display: none; /* 밑에 서브메뉴 가리기 */
+	background: white; /* 배경 흰색 */
+	position:absolute; 
+	left:0; 
+	top:-5px; 
+	width:100%; 
+	padding-top:87px; 
+	z-index:5; 
+	
+}
+
+.menu_wrap .dep2 a {
+	display: block;
+	padding: 2px 0 20px; /*메뉴판 간격조정*/
+	font-size: 15px;
+	color: #808080; 
+}
+.menu_wrap .dep2 a:hover {
+	text-decoration: underline; /* 마우스 호버했을때 밀줄*/
+	color: #ff650b; /* 마우스 호버했을때 글씨 색깔 변경*/
+}
+
+
+
+
+/*////////////////////login,signin/////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+#header .util_menu {
+	position:absolute; 
+	right:25px; 
+	margin-top: 70px;
+}
+#header .util_menu ul li {
+	float:left; 
+	position:relative;
+}
+#header .util_menu ul li ~ li {
+	margin-left:30px;
+}
+#header .util_menu ul li a {
+	display:block; 
+	color:#666666; 
+	font-size:14px; 
+	font-weight:600; 
+	height:30px;
+}
+
+#header .util_menu .before_sign ~ .before_sign::before {/*로그인 회원가입 가운데 점*/
+	background-color:#ddd; 
+	content:''; 
+	display:block; 
+	border-radius:50px; 
+	position:absolute; 
+	left:-16px; 
+	top:50%; 
+	margin-top:-2px; 
+	height:3px; 
+	width:3px;
+	
+}

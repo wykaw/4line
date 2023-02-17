@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{layout/comm-layout :: commLayout(~{this::head}, ~{::main})}">
+ <!-- ~{fragment위치::이름} -->
+ <!--  위에 this는 생략 가능 -->
+<head>
+    <link rel="stylesheet" href="/css/goods/user-list.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<main class="menu-list">
+	<div class="wrap menu-list">
+		<!-- 카테고리 -->
+		<div class="category_wrap">
+			<h2 class="goods_title">상품</h2>
+			<ul class="category1 flex">
+				<li>추천메뉴</li>
+				<li>샌드위치</li>
+				<li>샐러드</li>
+				<li>사이드</li>
+			</ul>
+		</div>
+		<!-- 상품리스트 -->
+		<div class="goodslist">
+			<ul>
+				<!-- db에서 받은 만큼 복사하기 -->
+				<li class="flex">
+					<!-- 이미지 -->
+					<div class="box" th:each="dto:${list}" th:onclick="|location.href='/common/goods/${dto.gno}'|">
+						<div class="goodsImg" th:style="|background-image: url('${dto.defImgUrl}');|">
+							<a class="in" th:href="|/common/goods/${dto.gno}|">디테일페이지</a>
+							<!-- 가격 평점 -->
+							<div class="goodsNP">
+								<div class="goodsName">
+									<p><a th:href="|/common/goods/${dto.gno}|">[[${dto.title}]]</a></p>
+								</div>
+								<div class="goodsPrice">
+									<p><a th:href="|/common/goods/${dto.gno}|">[[${dto.price}]]</a>원</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</main>
+</html>

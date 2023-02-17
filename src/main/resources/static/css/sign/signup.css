@@ -1,0 +1,224 @@
+@charset "UTF-8";
+
+main{
+	background-color: rgba(102, 102, 102,0.05);
+	font-family: font_ns, sans-serif;
+}
+/* 단계이미지 */
+.step2{
+	background-position-x: -70px;
+}
+
+.step3{
+	background-position-x: -140px;
+}
+
+.step4{
+	background-position-x: -210px;
+}
+/* 단계생상 */
+.col{ 
+	background-position-y: -70px;	
+}
+.col:before{
+	background-position-y: -5px;
+}
+
+.signupWrap{
+	width: 1170px;
+	margin: 0 auto;
+	padding-bottom: 100px;
+}
+
+.signupWrap>.nameArea h1{
+	position : static;
+	color: #292929;
+	justify-content: center;
+	font-size: 40px;
+	padding: 50px 0;
+}
+.signupWrap>.nameArea>.stepImg> ul{
+	display: inline-block;
+}
+.signupWrap>.nameArea>.stepImg> ul li{
+	float:left;
+	background-image: url('/images/signup/icon_join_step.png');
+	width:70px;
+	height:70px;
+	background-repeat:no-repeat;
+	position : relative;
+	margin-bottom: 50px;
+	margin: 50px;
+}
+
+.signupWrap>.nameArea>.stepImg> ul li:before{
+	content: '';
+    position: absolute;
+    margin:25px;
+    left: 70px;
+    top: 50%;
+    margin-top: -2.5px;
+    width: 45px;
+    height: 5px;
+    background-image: url('/images/signup/bg_step_bullet.png');
+}
+
+.signupWrap>.nameArea>.stepImg> ul li:last-child:before{
+	background-image: none;
+}
+.signupWrap>.nameArea>.stepImg> ul li span{
+	overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+
+.signupWrap>h3{
+	color: rgba(0, 0, 0, 0.95);
+	background-color: rgb(255 101 11);
+	font-size: 24px;
+	height: 70px;
+	line-height: 70px;
+	border-radius: 40px 0 0 0;
+	margin-bottom: 0px;
+}
+
+.signupWrap>h3 strong{
+	color: white;
+}
+
+.signupWrap>.inputArea{
+	background-color: white;
+	height: 700px;
+}
+
+.signupWrap>.inputArea>.inputForm>h2{
+	left: 0;
+	top: 0;
+	font-size: 26px;
+	color: #666666;
+	padding: 60px 0 40px 0;
+	margin-top: 0;
+}
+
+.signupWrap>.inputArea>.inputForm{
+	width: 80%;
+	height: 650px;
+	margin: 0 auto;
+}
+
+.signupWrap>.inputArea>.inputForm form hr{
+	margin: 40px 20px 0 0;
+	color: #e5e5e5;
+}
+
+
+.signupWrap>.inputArea>.inputForm form ul>li{
+	border: 1px solid #e5e5e5;
+	height: 70px;
+	line-height:70px;
+	font-size: 16px;
+    color: #666666;
+    font-family: font_ns, sans-serif; 
+	margin: 22px 30px 0 0;
+	text-align: left;
+	left: 15px;
+}
+
+.signupWrap>.inputArea>.inputForm form ul>li span{
+	display:inline-block;
+	width:110px;
+	position: relative;
+	margin-left: 50px;
+	margin-right: 20px;
+}
+
+.signupWrap>.inputArea>.inputForm form ul>li>button{
+	padding-left: 40px;
+	border-left: 2px solid #e5e5e5;
+	border-right:white;
+	border-top:white;
+	border-bottom:white;
+	background-color:white;
+	color: rgb(134, 209, 15);
+	font-size: 16px;
+	font-family: font_ns, sans-serif;
+}
+
+.signupWrap>.inputArea>.inputForm form ul>li:last-child{
+	border: 0px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align:center;
+}
+
+.signupWrap>.inputArea>.inputForm form ul>li:last-child >button{
+	margin: 0;
+	padding: 0;
+	color:white;	
+	height:50px;
+	width:170px;
+	font-family: font_ns, sans-serif; 
+	font-size: 18px;
+	background-color: rgb(255 101 11);
+	border-radius: 25px 25px 25px 25px;
+	height:50px;
+	border: 2px solid rgb(255 101 11);
+}
+.signupWrap>.inputArea>.inputForm form ul>li>div>.passwordCheck {
+	display:none;
+	color: rgba(255,0,0,0.75);
+	top: 20px;
+	width:400px;
+	float:right;
+	font-weight:normal;
+	font-size: 16px;
+}
+input{
+	display:inline-block;
+	width: 195px;
+	border: hidden;
+	color: #666666;
+	font-size: 16px;
+	margin-left: 30px;
+}
+
+input:focus{
+	outline:none;
+}
+
+select {
+	appearance: none;
+	border: none;
+	font-size: 16px;
+	width: 100px;
+	color: #666666;
+}
+
+select:focus {
+	outline:none;
+}
+
+.page-tit{
+    padding: 50px 0;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

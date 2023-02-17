@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<select class="category" name="categoryNo" onchange="cateSelected(this)">
+		<option class="depth">
+			카테고리 선택
+		</option>
+		<option th:each="dto:${list}" th:value="${dto.cno}">[[${dto.cname}]]</option>
+		<option th:if="${#lists.isEmpty(list)}">분류없음</option>
+	</select>
+</html>

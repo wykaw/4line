@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+.wrap{
+	max-width: 1170px;
+    margin: 0 auto;
+}
+.menu-list{
+	background-color: #f6f6f6;
+}
+
+.wrap>.category_wrap{
+	background: url(/images/common/img_visual_sandwich.jpg) no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+.wrap>.category_wrap>.goods_title{
+	position : static;
+	color: #fff;
+    font-size: 35px;
+	padding: 50px 0;
+	text-align: center;
+}
+.wrap>.category_wrap>.category1{
+	float:left;
+    text-align: center;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.wrap>.category_wrap>.category1 li{
+	border-left: 1px solid #a9a9a9;
+	padding:0 20px;
+}
+.wrap>.category_wrap>.category1 li:hover{
+	color: #ff650b;
+	cursor: pointer;
+}
+.wrap>.category_wrap>.category1 li:first-child{
+	border: none;
+}
+.wrap>.category_wrap>.category2{
+	float: right;
+    position: relative;
+    margin: 0 auto;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+.wrap>.goodslist{
+	width: 100%;
+}
+.wrap>.goodslist ul{
+	margin: 0 42px;
+}
+.wrap>.goodslist ul li{
+	margin: 80px auto;
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.wrap>.goodslist ul li:last-child{
+	margin-bottom: 120px;
+}
+.wrap>.goodslist ul li>.box{
+	margin:0 40px;
+}
+
+.in { /* 사진 누를때 디테일 페이지 */
+	position: relative;
+	top: 90px;
+	left: 20px;
+	padding: 80px;
+	font-size: 0px;
+}
+
+.wrap>.goodslist ul li>.box>.goodsImg{
+	width: 280px;
+	height: 280px;
+	background-color: #fff;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 5%;
+	display: inline-block;
+	content: "";
+	margin-bottom: 30px;
+}
+.wrap>.goodslist ul li>.box>.goodsImg:hover{
+	cursor: pointer;
+	background-color:  rgb(134, 209, 15);
+	cursor: pointer;
+}
+.wrap>.goodslist .goodsNP{
+	margin-top: 200px;	
+}
+.wrap>.goodslist .goodsNP>.goodsName{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+.wrap>.goodslist .goodsNP>.goodsPrice{
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}

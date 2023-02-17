@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+#content{
+	padding-top: 59px;
+   	background-color: #f6f6f6;
+    padding-bottom: 130px;
+}
+.signin_wrapper {
+    margin: 20px auto;
+    width: 650px;
+    background-color: #fff;
+    padding: 86px 100px 60px;
+    box-sizing: border-box;
+    border-radius: 30px 0;
+}
+.signin_wrapper p {
+    color: #999;
+    text-align: center;
+    letter-spacing: -0.05em;
+    line-height: 26px;
+    margin-top: 22px;
+}
+.signin_wrapper h2 {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 600;
+    color: #292929;
+    text-align: center;
+    letter-spacing: -0.05em;
+}
+.signin_wrapper .signin_input {
+    margin-top: 46px;
+}
+.signin_wrapper .signin_input dl dd {
+    width: 268px;
+}
+
+.signin_wrapper .signin_link>ul {
+    margin: 30px;
+    box-sizing: border-box;
+    display: table;
+}
+.signin_wrapper .signin_link li {
+    display: table-cell;
+    position: relative;
+}
+.signin_wrapper .signin_link li a {
+    color: #999;
+    padding: 1.5em;
+}
+.signin_wrapper .signin_link li a:first-child {
+    text-align: left;
+}
+.signin_wrapper .signin_link li:first-child:after {
+    right: 8px;
+}
+.signin_wrapper .signin_link li:last-child {
+    text-align: right;
+}
+.signin_wrapper .signin_link li:last-child:after {
+    display: none;
+}
+.signin_wrapper .signin_link li:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    right: -3px;
+    width: 1px;
+    height: 16px;
+    background-color: #ddd;
+}
+.signin_wrapper .signin_input .form_checkbox {
+    color: #666666d9;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
+.write_info_wrap .input_set {
+    overflow: hidden;
+    position: relative;
+}
+.write_info_wrap .input_set dl {
+    background-color: #fff;
+    overflow: hidden;
+    border: 2px solid #e5e5e5;
+    padding: 22px 30px;
+}
+.write_info_wrap .input_set dt {
+    float: left;
+    position: relative;
+    color: #666;
+    font-weight: bold;
+    width: 120px;
+    line-height: 35px;
+}
+.write_info_wrap .input_set dd {
+    float: left;
+    position: relative;
+}
+.write_info_wrap .input_set dd .form_text {
+    background-color: #fff;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.write_info_wrap .input_set dl>dd .form_text input{
+    color: #666;
+    height: 35px;
+    margin-top: 20px;
+    line-height: 35px;
+    text-indent: 20px;
+    letter-spacing: -0.05em;
+    
+}
+.write_info_wrap .input_set dl>dd .form_text input::placeholder{
+    color: #dadada;
+    font-size: 15px;
+    font-weight: bold;
+}
+.signin_btn{
+	margin-top: 20px;
+	background-color: rgb(255 101 11);
+	
+}
+/* 
+.signin_btn .btn span {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+    display: inline-block;
+    transition-duration: 0.2s;
+    color: #fff;
+    width: 100% !important;
+}
+ */
+.signin_btn button{
+	margin-left: 145px;
+	color:white;	
+	width:170px;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: rgb(255 101 11);
+	height:60px;
+	border: 2px solid rgb(255 101 11);
+	cursor: pointer;
+}
+.form_box {
+    overflow: hidden;
+}
+.form_box .write_info_wrap {
+    overflow: hidden;
+}
+
+.form_text {
+    display: inline-block;
+}
+.form_text input {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #292929;
+    font-size: 16px;
+}
+
+
+.form_checkbox {
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.05em;
+}
+.form_checkbox input[type=checkbox] {
+    height: 0;
+    opacity: 0;
+    width: 0;
+    position: absolute;
+    left: -10px;
+}
+.form_checkbox input[type=checkbox]:checked + .icon { 
+	background-image: url('/images/signin/icon_checkbox.png'); 
+	background-repeat: no-repeat;
+    
+}
+.form_checkbox .icon {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #dddddd;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+.signin_wrapper>.signin_social ul li{
+	text-align: center;
+	margin: 20px auto;
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;	
+}
+.signin_wrapper>.signin_social ul li a{
+	width: 50px;
+	text-align: center;
+	float: left;
+}
+.naver_icon{
+	background-image: url("/images/common/sns_naver.png");
+}
+.google_icon{
+	background-image: url("/images/common/sns_google.png");
+}
+.kakao_icon{
+	background-image: url("/images/common/sns_kakao.png");
+}

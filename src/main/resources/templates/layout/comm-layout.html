@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+ th:fragment="commLayout(head, main)">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="/css/commons/common.css">
+    <link rel="stylesheet" href="/css/commons/header.css">
+    <link rel="stylesheet" href="/css/commons/footer.css">
+    <link rel="stylesheet" href="/css/commons/chat-bot.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>-->
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/js/chat.js"></script>
+    <!-- 추가head 소스가 삽입되는 지점입니다. -->
+    <!-- 헤드가 들어가는 자리 -->
+    <th:block th:replace="${head}"/>
+</head>
+<body>
+	<header>
+		<div id="wrap">
+				<div id="header">
+					<div class="content">
+						<h1 class="logo">
+							<a href="/">4LINE</a>
+						</h1>
+				<!-- ////////////////////////메뉴판..?//////////////////// -->
+				<!-- ////////////////////////메뉴판..?//////////////////// -->
+				<!-- ////////////////////////메뉴판..?//////////////////// -->			
+						<div class="menu_wrap">
+							<ul class="dep1">
+								<li>
+									<a href="#none">메뉴소개</a>
+									<ul class="dep2" >
+										<li><a href="#">샌드위치</a></li>
+										<li><a href="#">랩 · 기타</a></li>
+										<li><a href="#">샐러드</a></li>
+										<li><a href="#">아침메뉴</a></li>
+										<li><a href="#">단체메뉴</a></li>
+									</ul>
+								</li>
+								<!-- //////////////////////////////////////// -->
+								<li>
+									<a href="#none">이용방법</a>
+									<ul class="dep2">
+										<li><a href="#">4LINE 이용방법</a></li>
+										<li><a href="#">단체메뉴 이용방법</a></li>
+										<li><a href="#">신선한 재료 소개</a></li>
+										<li><a href="#">App 이용방법</a></li>
+									</ul>
+								</li>
+								<!-- //////////////////////////////////////// -->							
+								<li>
+									<a href="#none">새소식</a>
+									<ul class="dep2">
+										<li><a href="#">이벤트 · 프로모션</a></li>
+										<li><a href="#">뉴스 ·공지사항</a></li>
+										<li><a href="#">광고영상</a></li>
+									</ul>
+								</li>
+								<!-- //////////////////////////////////////// -->
+								<li>
+									<a href="#none">4LINE</a>
+									<ul class="dep2">
+										<li><a href="#">4LINE 역사</a></li>
+										<li><a href="#">4LINE 가맹점</a></li>
+										<li><a href="#">샌드위치 아티스트 지원</a></li>
+										<li><a href="#">매장찾기</a></li>
+									</ul>
+								</li>						
+								<!-- //////////////////////////////////////// -->	
+								<li>
+									<a href="#none">가맹점</a>
+									<ul class="dep2">
+										<li><a href="#">4LINE 프렌차이즈</a></li>
+										<li><a href="#">가맹관련 FAQ</a></li>
+										<li><a href="#">가맹신청 · 문의</a></li>
+										<li><a href="#">지사안내</a></li>
+										<li><a href="#">사업설명회</a></li>
+									</ul>
+								</li>					
+								<!-- //////////////////////////////////////// -->
+								<li>
+									<a href="#none">온라인주문</a>
+									<ul class="dep2">
+										<li><a href="#">FAST-4LI</a></li>
+										<li><a href="#">HOME-4LI</a></li>
+										<li><a href="#">단체주문</a></li>
+									</ul>
+								</li>
+								<!-- //////////////////////////////////////// -->		
+							</ul>
+						</div>
+				<!-- ///////////////////////로그인/회원가입////////////////// -->	
+				<!-- ///////////////////////로그인/회원가입////////////////// -->	
+				<!-- ///////////////////////로그인/회원가입////////////////// -->
+						<div class="util_menu">
+							
+							<ul>
+								<li class="before_sign" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+									<a href="/admin">관리자 페이지</a>
+								</li>
+								<li class="before_sign" sec:authorize="isAnonymous()">
+									<a href="/members/signin">로그인</a>
+								</li>
+								<li class="before_sign" sec:authorize="isAnonymous()">
+									<a href="/members/signup">회원가입</a>
+								</li>
+								<li sec:authorize="isAuthenticated()">
+									<a href="/member/cart">장바구니</a>
+								</li>
+								<li sec:authorize="isAuthenticated()">
+									<a href="#">마이페이지</a>
+								</li>
+								<li sec:authorize="isAuthenticated()">
+									<a href="/logout">로그아웃</a>
+								</li>
+								
+							</ul>
+						</div>
+				<!-- //////////////////////////////////////////////////// -->	
+				<!-- //////////////////////////////////////////////////// -->	
+				<!-- //////////////////////////////////////////////////// -->	
+					</div>
+				</div>
+			</div>
+			<aside id="chat-bot">
+			<h1>챗봇</h1>
+			<div class="wrap">
+				<button type="button" id="btn-chat-open" onclick="openChat()">문의하기</button>
+				<th:block th:insert="~{common/chat-bot::#chat-disp}" />
+			</div>
+		</aside>	
+	</header>
+	<!-- 메인이 들어갈 자리 -->
+	<th:block th:replace="${main}"/>
+	<footer>
+		<div id ="wrap">
+		<div id="footer">
+			<div class="content">
+				<div class="util_menu">
+					<ul>
+						<li><a href="/">이용약관</a></li>
+						<li><a href="/">개인정보처리방침</a></li>
+						<li><a href="/">4LINE카드</a></li>
+						<li><a href="/">점주관리자</a></li>
+						<li><a href="/">4LINE LISTENS</a></li>
+					</ul>
+				</div>
+				<span class="addr">서울시 노원구 그린컴퓨터 4LINE</span>
+				<span class="rep">대표 : 김호선</span>
+				<span class="tel">전화: 02-123-4567</span>
+				<span class="num">사업자등록번호 : 101-01-10101</span>
+				<p class="copyright">4LINE® is a Registered Trademark of 4LINE IP LLC. © 2021 4LINE IP LLC. All Rights Reserved.</p>
+				<a class="instagram" href="#" target="_blank">instagram</a>
+				<a class="fackbook" href="#" target="_blank">facebook</a>
+				</div>
+			</div>
+		</div>		
+	</footer>
+</body>
+</html>

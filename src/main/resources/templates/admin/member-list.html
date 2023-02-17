@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:insert="~{layout/admin-layout :: head}"/>
+    <!-- 해당하는 페이지의 css나 js를 아래에 적용 -->
+    <link rel="stylesheet" href="/css/commons/common.css">
+    <link rel="stylesheet" href="/css/goods/admin-member-list.css">
+</head>
+<body class="flex">
+    <th:block th:insert="~{layout/admin-layout :: header}"/>
+	    <main>
+	    	<h1>메인컨텐츠</h1>
+	    	<div class="wrap">
+		   		<p class="title">회원 관리 페이지</p>
+			    <table>
+			    	<tr class="section">
+			    		<td>구분</td> <!-- mno  -->
+			    		<td>이메일</td> <!-- email  -->
+			    		<td>닉네임</td> <!-- nickName -->
+			    		<td>생성시간</td> <!-- nickName -->
+			    	</tr>
+			    	<tr th:each="dto:${list}">
+			    		<td>[[${dto.mno}]]</td>
+			    		<td>[[${dto.email}]]</td>
+			    		<td>[[${dto.nickName}]]</td>
+			    		<td>[[${dto.updatedDate}]]</td>
+    				</tr>
+			    </table>
+   			</div>
+ 		</main>
+</body>
+</html>

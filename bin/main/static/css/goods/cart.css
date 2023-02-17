@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+.cart{
+    background-color: #f6f6f6;
+    padding-bottom: 130px;
+}
+#content{
+    padding-top: 0;
+    position: relative;
+    z-index: 3;
+}
+#content h2.title{
+    text-align: center;
+    font-size: 40px;
+    color: #292929;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    padding: 73px 0 50px;
+}
+.data_y{
+    text-align: center;
+}
+.data_y p {
+    position: relative;
+    line-height: 18px;
+    letter-spacing: -0.05em;
+}
+.data_none{
+    padding: 172px 0;
+    text-align: center;
+}
+.data_none p {
+    position: relative;
+    line-height: 18px;
+    letter-spacing: -0.05em;
+    color: #999;
+    padding-top: 58px;
+}
+.data_none p:before {
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -20px;
+    background: url("/images/cart/cart_icon2.png") no-repeat;
+    width: 40px;
+    height: 40px;
+}
+.cart_box{
+	background-color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+    width: 1170px;
+}
+.cart_box2{
+	background-color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 1170px;
+}
+.title_section{
+	background-color: #58006c;
+    overflow: hidden;
+}
+.section{
+	height: 60px;
+	color: #ffc300;
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 15px;
+}
+.cart_data{
+	border-bottom: solid;
+}
+.cart_data>li{
+	margin-top: 40px;
+	font-size: 20px;
+	font-weight: 500;
+}
+.cart_data>li:nth-child(7){
+	margin-top: 40px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #ff650b;	
+}
+.cart_data>li p{
+	margin-top: 35px;
+}
+.form_checkbox {
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.05em;
+    margin-top: 35px;
+}
+.form_checkbox input[type=checkbox] {
+    height: 0;
+    opacity: 0;
+    width: 0;
+    position: absolute;
+    left: -10px;
+}
+.form_checkbox input[type=checkbox]:checked + .icon { 
+	background-image: url('/images/signin/icon_checkbox.png'); 
+	background-repeat: no-repeat;
+}
+.form_checkbox .icon {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #dddddd;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.btn_cart{
+	background-color: #ff650b;
+    color: #fff;
+	font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+    border-color: #ff650b;
+	margin-top: 25px;
+}
+
+ol>li:nth-child(1){
+	width: 70px;
+	padding-left: 15px;
+	text-align: center;
+}
+ol>li:nth-child(2){
+	width: 250px;
+	text-align: center;
+}
+ol>li:nth-child(3){
+	width: 250px;
+	text-align: center;
+}
+ol>li:nth-child(4){
+	width: 150px;
+	text-align: center;
+}
+ol>li:nth-child(5){
+	width: 200px;
+	text-align: center;
+}
+ol>li:nth-child(6){
+	width: 150px;
+	text-align: center;
+}
+ol>li:nth-child(7){
+	width: 200px;
+	text-align: center;
+}
+ol>li:nth-child(8){
+	width: 200px;
+	text-align: center;
+}

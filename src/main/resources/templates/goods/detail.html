@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{layout/comm-layout :: commLayout(~{this::head}, ~{::main})}">
+ <!-- ~{fragment위치::이름} -->
+ <!--  위에 this는 생략 가능 -->
+<head>
+    <link rel="stylesheet" href="/css/goods/user-list.css">
+    <link rel="stylesheet" href="/css/goods/user-detail.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</head>
+<main>
+		<h1>메인컨텐츠</h1>
+	<div class="goods">
+		<div class="wrap view-size">
+			<div class="flex row-reverse end category-path" th:if="${cates}">
+				<span th:each="cate:${cates}" th:class="${'cate-name ca-'+cate.depth}">
+					<a th:href="|/common/category/${cate.no}/goods|" th:text="${cate.name}">카테고리이름</a>
+					<span class="seperator" th:unless="${cateStat.first}">&gt;</span>
+				</span>
+				<span>
+					<a href="/" >HOME</a>
+					<span class="seperator">&gt;</span>
+				</span>
+			</div>
+			<div class="top_image">
+				<p class="page-tit">4LINE'S  MENU</p>
+				<p class="back-to-list"><a href="/comm/goods/list">목록보기</a></p>
+			</div>
+			<section id="detail">
+				<h1>상품상세정보</h1>
+				<div class="wrap ">
+					<div class="flex between detail-top">
+						<div class="img-area">
+							<div class="defImg bg-img" th:style="|background-image: url('${detail.defImgUrl}');|">
+							</div>
+							<ul class="addImg-wrap flex">
+								<th:block th:each="idto:${detail.imgs}">
+								<li  class="addImg bg-img" th:style="|background-image: url('${idto.imgUrl}');|"></li>
+								</th:block>
+							</ul>
+						</div>
+						<div class="goods-info">
+							<ul>
+								<li>
+									<p class="title" th:text="${detail.title}">상품명</p>
+								</li>
+								<li class="price" >
+									<dl class="flex">
+										<dt>일반가</dt>
+										<dd th:text="${#numbers.formatInteger(detail.price,0,'COMMA')}">일반가격</dd>
+									</dl>
+								</li>
+								<li class="" >
+									<dl class="flex">
+										<dt>배달구분</dt>
+										<dd th:text="${'그린배달'}">배달구분</dd>
+									</dl>
+								</li>
+								<li class="" >
+									<dl class="flex">
+										<dt>배달비</dt>
+										<dd class="flex">
+											<span th:text="${#numbers.formatInteger(3000,0,'COMMA')}">배달비</span>
+											<span>원</span>
+											<div class="flex free-poicy">
+												<span>(</span>
+												<span th:text="${#numbers.formatInteger(30000,0,'COMMA')}">무료기준금액</span>
+												<span>원 이상 무료)</span>
+											</div>
+										</dd>
+									</dl>
+								</li>
+								<li class="">
+								
+									<dl>
+										<dt>구매수량</dt>
+										<dd class="flex between">
+											<script type="text/javascript">
+											
+											
+											function quantityChanged(){
+												var tot=$("#quantity").val() * $("#price").val();
+												$("#total-price").text(addComma(tot));
+											}
+											//숫자 3자리마다 ,표현
+											function addComma(num){
+												var reg=/\B(?=(\d{3})+(?!\d))/g;
+												return num.toString().replace(reg,',');
+											}
+											
+											function btnCartClicked(){
+												
+												
+												if(!signinCheck()){
+													var result=confirm("카트저장은 로그인 이후 가능합니다.\n로그인페이지로 이동할까요?");
+													if(result){
+														location.href="/members/signin";
+													}
+													return;
+												}
+												
+												//*
+												var ea=$("#quantity").val();
+												var no=$("#no").val();
+												
+												$.ajax({
+													url: "/member/cart",
+													data:{quantity:ea, itemNo:no},
+													type: "post",
+													success:function(){
+														if(!confirm("장바구니에 상품을 담았습니다.\n장바구니 페이지로 이동할까요?"))return;
+														location.href="/member/cart";
+														
+													},
+													error:function(){
+														//alert("문제발생");
+													}
+												});
+												//*/
+											}
+											
+											
+											function signinCheck(){
+												var isSignin=false;
+												$.ajax({
+													url:"/member/signin-check",
+													async: false,
+													success:function(result){
+														isSignin=result;
+													}
+												})
+												return isSignin;
+											}
+											
+											function btnOrderClicked(){
+												var quantity=$("#quantity").val();
+												var itemNo=$("#no").val();
+												
+												location.href=`/user/order?itemNo=${itemNo}&quantity=${quantity}`;
+											}
+											</script>
+											<input type="hidden" id="price" th:value="${detail.price}">
+											<input type="number" id="quantity" min="1" th:max="${10}" value="1" onchange="quantityChanged()">
+											<span class="tot_price">
+												<i>총 상품 금액 </i>
+												<i th:text="${#numbers.formatInteger(detail.price,0,'COMMA')}" id="total-price">수량따른 금액표현</i>
+												<i> 원</i>
+											</span>
+										</dd>
+									</dl>
+								</li>
+								<li class="flex between">
+									<div>
+										<input type="hidden" id="no" th:value="${detail.gno}">
+										<button type="button" id="btn-cart" onclick="btnCartClicked()">장바구니</button>
+										<button type="button" id="btn-order" onclick="btnOrderClicked()">주문하기</button>
+									</div>
+									<div>
+										<button type="button">좋아요</button>
+									</div>
+								</li>
+								<li>
+									<div class="detail-content" th:utext="${detail.content}">
+										내용
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</main>
+</html>

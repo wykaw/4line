@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+.order{
+	background-color: #f6f6f6;
+    padding-bottom: 130px;
+}
+.page-tit{
+	text-align: center;
+    font-size: 40px;
+    color: #292929;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    padding: 73px 0 50px;
+}
+.order-content{
+	background-color: #fff;
+	padding: 0 0 20px; 
+}
+.title_section{
+	background-color: #58006c;
+    overflow: hidden;
+}
+.section{
+	height: 60px;
+	color: #ffc300;
+	font-size: 20px;
+	font-weight: 600;
+	padding-top: 15px;
+}
+
+.item-info>li{
+	margin-top: 40px;
+	font-size: 20px;
+	font-weight: 500;
+}
+.item-info>li:nth-child(7){
+	margin-top: 40px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #ff650b;	
+}
+
+ol>li:nth-child(1){
+	width: 90px;
+	padding-left: 15px;
+	text-align: center;
+}
+ol>li:nth-child(2){
+	width: 200px;
+	text-align: center;
+}
+ol>li:nth-child(3){
+	width: 250px;
+	text-align: center;
+}
+ol>li:nth-child(4){
+	width: 150px;
+	text-align: center;
+}
+ol>li:nth-child(5){
+	width: 200px;
+	text-align: center;
+}
+ol>li:nth-child(6){
+	width: 150px;
+	text-align: center;
+}
+ol>li:nth-child(7){
+	width: 200px;
+	text-align: center;
+}
+
+
+.form_checkbox {
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: -0.05em;
+}
+.form_checkbox input[type=checkbox] {
+    height: 0;
+    opacity: 0;
+    width: 0;
+    position: absolute;
+    left: -10px;
+}
+.form_checkbox input[type=checkbox]:checked + .icon { 
+	background-image: url('/images/signin/icon_checkbox.png'); 
+	background-repeat: no-repeat;
+    
+}
+.form_checkbox .icon {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #dddddd;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-right: 10px;
+}
+.del-info{
+	margin: 10px 20px;
+}
+.del_title{
+	margin: 30px 10px 0px;
+	padding: 2px 15px 15px;
+	font-size: 18px;
+	font-weight: 600;
+	background: url(/images/main/bul_tit.png) no-repeat;
+	background-size: 30px;
+}
+.btn-pay{
+	background-color: #58006c;
+    color: #ffc300;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+    border: 0;
+    outline: 0;
+    margin: 20px 20px 10px;
+}
+
+#menu-d{
+	position: relative;
+	height: 400px;
+}
+#menu-d>li{
+	margin-right: 2px;
+}
+#menu-d>li>button {
+	display: block;
+	border: 1px solid #a9a9a9;
+	border-bottom: none;
+	border-radius: 5px 5px 0 0;
+	background-color: #fff;	
+	padding: 0 1em;
+	height: 34px;
+}
+#menu-d>li.target >*{
+	background-color: #58006ca6;
+	color: #fffbfb;
+}
+#menu-d>li .disp{
+	color: #fffbfb;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 33px;
+	width: 100%;
+	border: 1px solid #a9a9a9;
+	border-radius: 0 5px 5px 5px;
+	z-index: 1;
+	padding: 1em;
+	box-shadow: 3px -3px 3px rgba(0,0,0,25%);
+
+}
+#menu-d>li.target .disp{
+	display: block;
+}
+#menu-d>li.target>button{
+	position: relative;
+	z-index: 2;
+	font-size: 16px;
+	font-weight: 700;
+	box-shadow: 3px -3px 3px rgba(0,0,0,25%);
+}
+
+#deliveries>ol:first-child{
+	border-top: 1px solid #58006ca1;
+	font-weight: 700;
+}
+#deliveries>ol>li{
+	width: 150px;
+	font-size: 14px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#deliveries>ol>li:nth-child(2) {
+	width: 400px;
+}
+#deliveries>ol:not(:first-child)>li:nth-child(2) {
+	text-align: left;
+}
+
+#deliveries>ol{
+	padding:1em;
+	border-bottom: 1px solid #58006ca1;
+}
+#deliveries>ol:nth-child(even){
+	background-color: #58006c73;
+}
+
+
+
+
